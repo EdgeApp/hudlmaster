@@ -14,11 +14,11 @@ interface SlotConfigurations {
   /** User configuration for callback function that runs after user updates the name list */
   onNameListChanged?: () => void;
 }
-const getRandomInt = (min, max) => {
+const getRandomInt = (max: number) => {
   const randomBuffer = new Uint32Array(1);
   window.crypto.getRandomValues(randomBuffer);
-  const randomNumber = randomBuffer[0] / (0xffffffff + 1);
-  return Math.floor(randomNumber * (max - min + 1)) + min;
+  // Scale the random value to the desired range
+  return randomBuffer[0] % (max + 1);
 };
 
 // Fetch Bitcoin Price Method
@@ -60,9 +60,9 @@ const shuffle = (array: string[]) => {
   let randomIndex;
 
   // While there remain elements to shuffle...
-  while (currentIndex !== 0) {
+  while (currentIndex > 1) {
     // Pick a remaining element...
-    randomIndex = getRandomInt(0, currentIndex - 1);
+    randomIndex = getRandomInt(currentIndex - 1);
     currentIndex -= 1;
 
     // And swap it with the current element.
@@ -222,13 +222,10 @@ export default class Slot {
     reelContainer.innerHTML = ''; // Clear the existing children
     reelContainer.appendChild(fragment);
 
-    // Fetch the Bitcoin price and determine the cents value
-    const btcPrice = await fetchBitcoinPrice();
-    const btcCents = btcPrice % 1; // Get the decimal part of the BTC price
-    const rangeSize = 1 / randomNames.length; // Size of each person's range
-    const winnerIndex = Math.floor(btcCents / rangeSize); // Determine the winner index based on btcCents
+    // Scale the random value to the desired range
+    const winnerIndex = getRandomInt(randomNames.length - 1);
+
     const winner = randomNames[winnerIndex]; // Get the winner's name from the original list
-    console.log(winner);
 
     // Play the spin animation
     const animationPromise = new Promise<void>((resolve) => {
