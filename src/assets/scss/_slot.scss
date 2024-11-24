@@ -82,18 +82,18 @@
     border-bottom-left-radius: $slot-border-radius;
   }
 
-  @each $media-query, $factor in $scale-factors {
-    @media #{$media-query} {
-      width: $slot-width * $factor;
-      height: $slot-height * $factor;
-      margin: 0 auto;
+  // @each $media-query, $factor in $scale-factors {
+  //   @media #{$media-query} {
+  //     width: $slot-width * $factor;
+  //     height: $slot-height * $factor;
+  //     margin: 0 auto;
 
-      &__outer {
-        transform: scale($factor);
-        transform-origin: top left;
-      }
-    }
-  }
+  //     &__outer {
+  //       transform: scale($factor);
+  //       transform-origin: top left;
+  //     }
+  //   }
+  // }
 }
 
 .reel {
@@ -123,15 +123,15 @@
   padding-left: 3rem;
   padding-right: 3rem;
 
-  @each $media-query, $factor in $scale-factors {
-    @media #{$media-query} {
-      width: $draw-button-width * $factor;
-      margin: $draw-button-margin-top * $factor 0 0;
-      font-size: max((1.75rem * $factor), 1rem);
-      line-height: max((1.75rem * $factor), 1rem);
-      @include shadow('large', $factor);
-    }
-  }
+  // @each $media-query, $factor in $scale-factors {
+  //   @media #{$media-query} {
+  //     width: $draw-button-width * $factor;
+  //     margin: $draw-button-margin-top * $factor 0 0;
+  //     font-size: max((1.75rem * $factor), 1rem);
+  //     line-height: max((1.75rem * $factor), 1rem);
+  //     @include shadow('large', $factor);
+  //   }
+  // }
 }
 
 .settings {
@@ -233,7 +233,6 @@
   pointer-events: none;
 }
 
-
 #leaderboard {
-  margin-top: 2rem; 
+  margin-top: 2rem;
 }
