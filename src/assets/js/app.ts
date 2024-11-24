@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import Slot from '@js/Slot';
 import SoundEffects from '@js/SoundEffects';
 import confetti from 'canvas-confetti';
@@ -61,8 +60,8 @@ import confetti from 'canvas-confetti';
   const CONFETTI_COLORS = ['#ffffff', '#ebd000', '#059e00'];
   let confettiAnimationId;
 
-  const DEV_NAMES = ['Sam', 'Jon', 'Michael', 'RJ', 'Matthew', 'Madison', 'Daniel', 'William', 'Jared'];
-  const OPS_NAMES = ['Cache', 'Peter', 'Madison', 'Fari'];
+  const DEV_NAMES = ['Sam', 'Jon', 'Michael', 'RJ', 'Matthew', 'Alberto', 'Daniel', 'William', 'Jared'];
+  const OPS_NAMES = ['Cache', 'Peter', 'Fari'];
 
   /** Confeetti animation instance */
   const customConfetti = confetti.create(confettiCanvas, {
@@ -165,7 +164,7 @@ import confetti from 'canvas-confetti';
       } else if (selectedOption === 'radio_ops') {
         names = OPS_NAMES;
       } else if (selectedOption === 'radio_allcompany') {
-        names = [...DEV_NAMES, ...OPS_NAMES];
+        names = Array.from(new Set([...DEV_NAMES, ...OPS_NAMES]));
       } else {
         names = DEV_NAMES;
       }
