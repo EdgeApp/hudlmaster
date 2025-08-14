@@ -61,7 +61,7 @@ import confetti from 'canvas-confetti';
   let confettiAnimationId;
 
   const DEV_NAMES = ['Sam', 'Jon', 'Michael', 'RJ', 'Matthew', 'Alberto', 'Daniel', 'William', 'Jared'];
-  const OPS_NAMES = ['Cache', 'Peter', 'Fari', 'Elizabeth'];
+  const OPS_NAMES = ['Cache', 'Fari', 'Elizabeth'];
 
   /** Confeetti animation instance */
   const customConfetti = confetti.create(confettiCanvas, {

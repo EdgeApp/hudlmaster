@@ -1,5 +1,5 @@
 {
-  "name": "edge-hudl-master",
+  "name": "hudlmaster",
   "version": "1.2.0",
   "description": "Simple HTML5 random name picker for picking lucky draw winner using Web Animations and AudioContext API.",
   "private": true,
@@ -13,7 +13,12 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d dist"
   },
-  "author": "Jon Tzeng - forked from Ice Lam",
+  "authors": "Ice Lam",
+  "contributors": [
+    "Jon Tzeng <jon@edge.app>",
+    "Paul Puey <paul@edge.app>"
+  ],
+
   "homepage": "https://jon-edge.github.io/",
   "license": "MIT",
   "devDependencies": {
